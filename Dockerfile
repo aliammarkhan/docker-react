@@ -18,6 +18,8 @@ RUN npm run build
 #a single phase can have a single from statement
 
 From nginx
+#EXPOSE port 80 on EBS
+EXPOSE 80
 #Copy build folder from previous phase to new phase
 COPY --from=builder /home/node/app/build  /usr/share/nginx/html
 #default command from nginx will run nginx, no need to specify start command

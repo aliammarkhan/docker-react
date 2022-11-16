@@ -1,26 +1,8 @@
-version : '3'
-
-#Serice 1 is responsible to run the main application
-#Service 2 is responsible to run tests
-
+version: '3'
 services:
   web:
-    build: 
+    build:
       context: .
-      dockerfile: DockerFile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - /home/node/app/node_modules
-      - ~/projects/frontend:/home/node/app
-
-  tests:
-    build: 
-      context: .
-      dockerfile: DockerFile.dev
-    volumes:
-      - /home/node/app/node_modules
-      - ~/projects/frontend:/home/node/app
-
-    command : ["npm","run","test"] #override default dockerFile command
-
+      - '80:80'
